@@ -116,4 +116,61 @@ router.delete('/:userId', async(req, res) => {
 
 });
 
+// api/users/:userId/friends/:friendId
+router.post('/:userId/friends/:friendId', async (req, res) => {
+
+    try {
+
+        const dbUserData = User.findOneAndUpdate(
+            
+            { _id: req.params.userId },
+            { $addToSet: { friends: req.params.friendId} },
+            { new: true }
+
+        );
+
+        if (!dbUserData) {
+
+            return res.status(404).json({ message: `No user with this ID`});
+
+        }
+
+        res.status(200).json(dbUserData);
+
+    } catch(err) {
+
+        res.status(500).json(err);
+
+    }
+
+});
+
+router.delete('/:userId/friends/:friendId', async(req, res) => {
+
+    try {
+
+        const dbUserData = User.findOneAndDelete(
+            
+            { _id: req.params.userId },
+            { $pull: { friends: req.params.friendId } },
+            { new: true}
+        
+        );
+
+        if (!dbUserData) {
+
+            return res.status(404).json({ message: `No user with this ID`});
+
+        }
+
+        res.status(200).json(dbUserData);
+
+    } catch(err) {
+
+        res.status(500).json(err);
+
+    }
+    
+});
+
 module.exports = router;
