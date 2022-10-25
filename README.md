@@ -28,4 +28,4 @@ hale-bopp97 github.com/hale-bopp97
 ## License
 This project is licensed under the MIT license.
 
-    
+![screencap](https://github.com/hale-bopp97/noSQL_social_network_api/blob/main/assets/Capture.JPG?raw=true)
