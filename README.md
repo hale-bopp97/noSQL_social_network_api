@@ -20,7 +20,7 @@ express 4.18.2 mongoose 6.7.0 nodemon 2.0.20
 node server.js
 
 ## Contributors
-hale-bopp97 github.com/hale-bopp97
+hale-bopp97 https://github.com/hale-bopp97
 
 ## Version
 1.0.0
