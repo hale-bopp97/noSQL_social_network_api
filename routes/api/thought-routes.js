@@ -4,10 +4,31 @@ const { User, Thought } = require('../../models');
 
 // api/thoughts
 router.get('/', async (req, res) => {
-
+    console.log('hit / routes for thoughts');
     try {
 
         const dbThoughtData = await Thought.find().sort({ createdAt: -1 });
+        res.status(200).json(dbThoughtData);
+
+    } catch(err) {
+        console.log(err);
+        res.status(404).json(err);
+
+    }
+
+});
+
+// api/thoughts/:thoughtId
+router.get('/:thoughtId', async (req, res) => {
+    console.log(req.params.thoughtId);
+    try {
+        console.log(req.params.thoughtId);
+        const dbThoughtData = await Thought.findOne(
+            
+            { _id: req.params.thoughtId }
+        
+        );
+
         res.status(200).json(dbThoughtData);
 
     } catch(err) {
@@ -47,7 +68,6 @@ router.post('/', async (req, res) => {
         res.status(500).json(err);
 
     }
-
 
 });
 

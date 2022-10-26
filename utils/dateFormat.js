@@ -32,7 +32,7 @@ module.exports = (timeStamp, {monthLength = 'short', dateSuffix = true} = {}) =>
     }
 
     const dateObj = new Date(timeStamp);
-    const formattedMonth = months[dataObj.getMonth()];
+    const formattedMonth = month[dateObj.getMonth()];
     const dayOfMonth = dateSuffix ? addDateSuffix(dateObj.getDate()): dateObj.getDate();
     const year = dateObj.getFullYear();
     let hour = dateObj.getHours() > 12 ? Math.floor(dateObj.getHours() - 12) : dateObj.getHours();

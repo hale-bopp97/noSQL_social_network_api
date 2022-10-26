@@ -121,7 +121,7 @@ router.post('/:userId/friends/:friendId', async (req, res) => {
 
     try {
 
-        const dbUserData = User.findOneAndUpdate(
+        const dbUserData = await User.findOneAndUpdate(
             
             { _id: req.params.userId },
             { $addToSet: { friends: req.params.friendId} },
@@ -149,7 +149,7 @@ router.delete('/:userId/friends/:friendId', async(req, res) => {
 
     try {
 
-        const dbUserData = User.findOneAndDelete(
+        const dbUserData = await User.findOneAndUpdate(
             
             { _id: req.params.userId },
             { $pull: { friends: req.params.friendId } },
@@ -166,7 +166,7 @@ router.delete('/:userId/friends/:friendId', async(req, res) => {
         res.status(200).json(dbUserData);
 
     } catch(err) {
-
+        console.log(err);
         res.status(500).json(err);
 
     }
