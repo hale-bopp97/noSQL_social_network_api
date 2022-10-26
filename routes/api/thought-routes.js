@@ -29,6 +29,12 @@ router.get('/:thoughtId', async (req, res) => {
         
         );
 
+        if (!dbThoughtData) {
+
+            return res.status(404).json({ message: `No thought with that ID`});
+
+        }
+
         res.status(200).json(dbThoughtData);
 
     } catch(err) {
@@ -45,15 +51,11 @@ router.post('/', async (req, res) => {
 
         const dbThoughtData = await Thought.create(req.body);
         const dbUserData = await User.findOneAndUpdate(
-            {
-                _id: req.body.userId,
-            },
-            {
-                $push: { thoughts: dbThoughtData._id }
-            },
-            {
-                new: true
-            }
+            
+            { _id: req.body.userId, },
+            { $push: { thoughts: dbThoughtData._id } },
+            { new: true }
+
         );
 
         if (!dbUserData) {
@@ -64,6 +66,60 @@ router.post('/', async (req, res) => {
         res.status(200).json({ ...dbThoughtData, message: `Thought successfully created` });
         
     } catch(err) {
+
+        res.status(500).json(err);
+
+    }
+
+});
+
+router.put('/:thoughtId', async (req, res) => {
+
+    try {
+
+        const dbThoughtData = await Thought.findOneAndUpdate(
+
+            { _id: req.params.thoughtId },
+            { $set: req.body },
+            { runValidators: true, new: true }
+
+        );
+
+        if (!dbThoughtData) {
+
+            return res.status(404).json({ message: `No thought with that ID` });
+
+        }
+
+        res.status(200).json(dbThoughtData);
+
+    } catch (err) {
+
+        res.status(500).json(err);
+
+    }
+
+});
+
+router.delete('/:thoughtId', async (req, res) => {
+
+    try {
+
+        const dbThoughtData = await Thought.findOneAndDelete(
+
+            { _id: req.params.thoughtId }
+
+        );
+
+            if (!dbThoughtData) {
+
+                return res.status(404).json({ message: `No thought with that ID` });
+
+            }
+
+        res.status(200).json(dbThoughtData);
+
+    } catch (err) {
 
         res.status(500).json(err);
 

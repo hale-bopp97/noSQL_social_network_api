@@ -64,16 +64,9 @@ router.put('/:userId', async(req, res) => {
 
         const dbUserData = await User.findOneAndUpdate(
             
-            {
-                _id: req.params.userId,
-            },
-            {
-                $set: req.body,
-            },
-            {
-                runValidators: true,
-                new: true
-            }
+            { _id: req.params.userId, },
+            { $set: req.body, },
+            { runValidators: true, new: true }
         
         );
 
@@ -102,6 +95,7 @@ router.delete('/:userId', async(req, res) => {
         if(!dbUserData) {
 
             return res.status(404).json({ message: 'No user with this ID!'});
+        
         }
 
         await Thought.deleteMany({ _id: { $in: dbUserData.thoughts }});
@@ -166,7 +160,7 @@ router.delete('/:userId/friends/:friendId', async(req, res) => {
         res.status(200).json(dbUserData);
 
     } catch(err) {
-        console.log(err);
+        //console.log(err);
         res.status(500).json(err);
 
     }
