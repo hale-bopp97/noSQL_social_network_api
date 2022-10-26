@@ -14,7 +14,9 @@ Backend API running mongoDB
 *[License](#license)  
 
 ### Dependencies
-express 4.18.2 mongoose 6.7.0 nodemon 2.0.20
+express 4.18.2  
+mongoose 6.7.0   
+nodemon 2.0.20  
 
 ### Executing the program
 node server.js
@@ -29,3 +31,5 @@ hale-bopp97 https://github.com/hale-bopp97
 This project is licensed under the MIT license.
 
 ![screencap](https://github.com/hale-bopp97/noSQL_social_network_api/blob/main/assets/Capture.JPG?raw=true)
+
+![user_CRUD](https://github.com/hale-bopp97/noSQL_social_network_api/blob/main/assets/Untitled_%20Oct%2025,%202022%2010_55%20PM.gif?raw=true)
