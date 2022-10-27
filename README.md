@@ -32,4 +32,10 @@ This project is licensed under the MIT license.
 
 ![screencap](https://github.com/hale-bopp97/noSQL_social_network_api/blob/main/assets/Capture.JPG?raw=true)
 
+## user GET one GET all POST PUT and DELETE
+
 ![user_CRUD](https://github.com/hale-bopp97/noSQL_social_network_api/blob/main/assets/Untitled_%20Oct%2025,%202022%2010_55%20PM.gif?raw=true)
+
+## thought GET one GET all POST PUT and DELETE
+
+![thought_CRUD]()
