@@ -38,4 +38,8 @@ This project is licensed under the MIT license.
 
 ## thought GET one GET all POST PUT and DELETE
 
-![thought_CRUD]()
+![thought_CRUD](https://github.com/hale-bopp97/noSQL_social_network_api/blob/main/assets/Untitled_%20Oct%2026%2C%202022%2010_56%20PM.gif)
+
+## thought GET one GET all POST PUT and DELETE
+
+![reaction_POST_and_delete]()
